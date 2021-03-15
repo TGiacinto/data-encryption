@@ -1,0 +1,31 @@
+{
+  "properties": [
+    {
+      "name": "io.data.encryption.secret-key",
+      "type": "java.lang.String",
+      "description": "The input can be of 128 bit or 192 bit or 256 bit. So if key size is 128 then \"aesEncryptionKey\" is a valid secret key because it has 16 characters i.e 16*8=128 bits.",
+      "sourceType": "io.data.encryption.config.PropertiesConfiguration"
+    },
+    {
+      "name": "io.data.encryption.secret-key-algorithm",
+      "type": "java.lang.String",
+      "description": "Coding algorithm.",
+      "sourceType": "io.data.encryption.config.PropertiesConfiguration",
+      "defaultValue": "AES"
+
+    },
+    {
+      "name": "io.data.encryption.iv-key",
+      "type": "java.lang.String",
+      "description": "The initialization vector is needed in case of CBC mode\nThe initialization vector size should be 128 bit\nSo if initialization vector size is 128 then \"encryptionIntVec\" is a valid initialization vector because it has 16 characters i.e 16*8=128 bits.",
+      "sourceType": "io.data.encryption.config.PropertiesConfiguration"
+    },
+    {
+      "name": "io.data.encryption.algorithm",
+      "type": "java.lang.String",
+      "description": "Coding algorithm.",
+      "sourceType": "io.data.encryption.config.PropertiesConfiguration",
+      "defaultValue": "AES/CBC/PKCS5Padding"
+    }
+  ]
+}
