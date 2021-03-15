@@ -27,7 +27,7 @@ public class MyEntity {
     @Encrypt
     private String name;
 
-    private int eta;
+    private int age;
     
     //getter and setter ...
 }
