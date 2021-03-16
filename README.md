@@ -1,5 +1,6 @@
 # Data-Encryption
 
+
 The data encryption library allows to obtain an encrypted text from a readable text and to save it into a database. The encryption ensures security against any attack which attempts to retrieve data from db.
 ## Usage
 
@@ -33,7 +34,33 @@ public class MyEntity {
 }
 ```
 
-### Author
+### How to install
 
-TGiacinto
-Alelli22
+Run in your terminal: mvn clean install, then add in pom:
+
+```
+   <dependency>
+    <groupId>io.data</groupId>
+    <artifactId>encryption</artifactId>
+    <version>1.0.0</version>
+   </dependency>
+```
+
+Or run in your terminal: mvn clean package, then copy the jar into your project and add in pom :
+
+```
+   <dependency>
+    <groupId>io.data</groupId>
+    <artifactId>encryption</artifactId>
+    <version>1.0.0</version>
+    <scope>system</scope>
+    <systemPath>YOUR_PATH/encryption-1.0.0.jar</systemPath>
+   </dependency>
+```
+
+Data encryption library will be released soon on maven repository.
+
+#### Authors
+
+[TGiacinto](https://github.com/TGiacinto).  
+[Alessio22](https://github.com/Alessio22).  
