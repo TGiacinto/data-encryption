@@ -1,11 +1,14 @@
 # Data-Encryption
 
-The data encryption library allows you to save data in the database from a readable text to an encrypted text of unreadable characters
+The data encryption library allows you to save data in the database from a readable text to an encrypted text of
+unreadable characters
+
 ## Usage
 
 Add @EnableEncryptData annotations in the main spring class
 
 Add this property
+
 ```
 io.data.encryption.secret-key=<YOUR_SECRET_KEY>
 io.data.encryption.secret-key-algorithm=AES
@@ -28,12 +31,37 @@ public class MyEntity {
     private String name;
 
     private int age;
-    
+
     //getter and setter ...
 }
 ```
 
-### Author
+### How to install
 
-TGiacinto
-Alelli22
+Run in your terminal: mvn clean install and in your pom add:
+
+```
+   <dependency>
+    <groupId>io.data</groupId>
+    <artifactId>encryption</artifactId>
+    <version>1.0.0</version>
+   </dependency>
+```
+
+Or run in your terminal: mvn clean package,  copy the jar inside your project and add this in the pom :
+
+```
+   <dependency>
+    <groupId>io.data</groupId>
+    <artifactId>encryption</artifactId>
+    <version>1.0.0</version>
+    <scope>system</scope>
+    <systemPath>YOUR_PATH/encryption-1.0.0.jar</systemPath>
+   </dependency>
+```
+
+Soon it will be released on maven repository
+
+#### Authors
+
+TGiacinto Alelli22
