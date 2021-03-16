@@ -64,4 +64,5 @@ Soon it will be released on maven repository
 
 #### Authors
 
-TGiacinto Alelli22
+[TGiacinto](https://github.com/TGiacinto).  
+[Alessio22](https://github.com/Alessio22).  
