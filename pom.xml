@@ -59,8 +59,15 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
-
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub TGiacinto Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/tgiacinto/data-encryption</url>
+        </repository>
+    </distributionManagement>
 
     <build>
         <plugins>
