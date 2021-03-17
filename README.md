@@ -36,26 +36,26 @@ public class MyEntity {
 
 ### How to install
 
-Run in your terminal: mvn clean install, then add in pom:
-
+Add this dependency
 ```
-   <dependency>
+ <dependency>
     <groupId>io.data</groupId>
     <artifactId>encryption</artifactId>
     <version>1.0.0</version>
-   </dependency>
+ </dependency>
 ```
+
 
 Or run in your terminal: mvn clean package, then copy the jar into your project and add in pom :
 
 ```
-   <dependency>
+ <dependency>
     <groupId>io.data</groupId>
     <artifactId>encryption</artifactId>
     <version>1.0.0</version>
     <scope>system</scope>
     <systemPath>YOUR_PATH/encryption-1.0.0.jar</systemPath>
-   </dependency>
+ </dependency>
 ```
 
 Data encryption library will be released soon on maven repository.
