@@ -34,6 +34,15 @@ public class MyEntity {
 }
 ```
 
+Query to get the encrypted data
+``` java
+@Repository
+public interface PersonRepository extends JpaRepository<Person, Long> {
+    Person findByName(@Encrypt String name);
+}
+```
+
+
 ### How to install
 
 Add this dependency
