@@ -1,5 +1,6 @@
 package io.data.encryption.annotations;
 
+import io.data.encryption.aspect.AspectRepository;
 import io.data.encryption.config.EncryptConfiguration;
 import io.data.encryption.config.PropertiesConfiguration;
 import org.springframework.context.annotation.Import;
@@ -12,7 +13,7 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
-@Import({PropertiesConfiguration.class,EncryptConfiguration.class})
+@Import({PropertiesConfiguration.class,EncryptConfiguration.class, AspectRepository.class})
 @Component
 public @interface EnableEncryptData {
 
