@@ -46,7 +46,11 @@ Add this dependency
 ```
 
 
-Or run in your terminal: mvn clean package, then copy the jar into your project and add in pom :
+Or run in your terminal :
+
+- mvn clean package
+- copy the jar into your project
+- add in pom 👇
 
 ```
  <dependency>
@@ -57,8 +61,6 @@ Or run in your terminal: mvn clean package, then copy the jar into your project 
     <systemPath>YOUR_PATH/encryption-1.0.0.jar</systemPath>
  </dependency>
 ```
-
-Data encryption library will be released soon on maven repository.
 
 #### Authors
 
