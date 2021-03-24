@@ -67,7 +67,7 @@ Or run in your terminal :
     <artifactId>encryption</artifactId>
     <version>1.0.0</version>
     <scope>system</scope>
-    <systemPath>YOUR_PATH/encryption-1.0.0.jar</systemPath>
+    <systemPath>YOUR_PATH/encryption-1.0.1.jar</systemPath>
  </dependency>
 ```
 
