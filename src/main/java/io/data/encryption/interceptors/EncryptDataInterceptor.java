@@ -19,18 +19,23 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.stream.Stream;
 
 @Component
 @CommonsLog
 public class EncryptDataInterceptor extends EmptyInterceptor {
 
+    public enum DataEncryption {
+        ENCRYPT, DECRYPT
+    }
+
     @Override
     public boolean onLoad(Object entity, Serializable id, Object[] state, String[] propertyNames, Type[] types) {
 
         boolean isChanged = false;
 
-        for(int i = 0; i < state.length; i++){
+        for (int i = 0; i < state.length; i++) {
             try {
                 state[i] = EncryptUtils.decrypt((String) state[i]);
                 isChanged = true;
@@ -41,22 +46,36 @@ public class EncryptDataInterceptor extends EmptyInterceptor {
         return isChanged;
     }
 
+    @Override
+    public void postFlush(Iterator entities) {
+        while (entities.hasNext()) {
+            Object entity = entities.next();
+            encryptOrDecrypt(entity, DataEncryption.DECRYPT);
+        }
+
+
+    }
 
 
     @Override
     public boolean onSave(Object entity, Serializable id, Object[] state, String[] propertyNames, Type[] types) {
+        encryptOrDecrypt(entity, DataEncryption.ENCRYPT);
+        return super.onSave(entity, id, state, propertyNames, types);
+    }
+
+
+    private void encryptOrDecrypt(Object entity, DataEncryption dataEncryption) {
         getFields(entity).forEach(field -> {
             try {
                 field.setAccessible(true);
                 String value = (String) field.get(entity);
-                field.set(entity, EncryptUtils.encrypt(value));
+                field.set(entity, DataEncryption.ENCRYPT.equals(dataEncryption) ? EncryptUtils.encrypt(value) : EncryptUtils.decrypt(value));
                 field.setAccessible(false);
             } catch (IllegalAccessException | BadPaddingException | IllegalBlockSizeException | InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException | InvalidAlgorithmParameterException e) {
                 log.error(e);
             }
         });
 
-        return super.onSave(entity,id,state,propertyNames,types);
     }
 
     private Stream<Field> getFields(Object entity) {
